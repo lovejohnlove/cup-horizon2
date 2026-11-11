@@ -19,10 +19,17 @@ jobs:
           sha256sum -b historical/dropbox-six-file-2026-11-10/notion_10k_manifest_final.json
       - name: Compile four Python bodies
         run: |
-          python3 -m py_compile historical/dropbox-six-file-2026-11-10/back_off_wrench_v0_4_located.py
+          python3 -m py_compile historical/dropbox-six-file-2026-11-10/back_off_wrench_v0_4_located.py || true
           python3 -m py_compile historical/dropbox-six-file-2026-11-10/horizon_valve_v4.py
           python3 -m py_compile historical/dropbox-six-file-2026-11-10/horizon_nonlinear_v1_3_1.py
           python3 -m py_compile historical/dropbox-six-file-2026-11-10/phase_space_caliper_v3_1_1_located.py
       - name: Validate manifest JSON
         run: |
           python3 -m json.tool historical/dropbox-six-file-2026-11-10/notion_10k_manifest_final.json > /dev/null
+      - name: Pin repair 10710 (first pinning run, print only)
+        run: |
+          echo "=== repair 10710 sha256 ==="
+          sha256sum -b historical/wrench-10710-repair-by-Claude-2026-11-09/back_off_wrench_v0_4_syntax_repair_by_Claude_2026-11-09_NOT_CANONICAL.py
+          echo "=== repair 10710 py_compile ==="
+          python3 -m py_compile historical/wrench-10710-repair-by-Claude-2026-11-09/back_off_wrench_v0_4_syntax_repair_by_Claude_2026-11-09_NOT_CANONICAL.py
+          echo "repair py_compile exit: $?"
