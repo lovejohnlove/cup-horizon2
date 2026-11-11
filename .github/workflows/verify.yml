@@ -1,0 +1,28 @@
+name: verify-leg3-six
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Print sha256 for six Leg 3 bodies
+        run: |
+          sha256sum -b historical/dropbox-six-file-2026-11-10/back_off_wrench_v0_4_located.py
+          sha256sum -b historical/dropbox-six-file-2026-11-10/horizon_valve_v4.py
+          sha256sum -b historical/dropbox-six-file-2026-11-10/horizon_nonlinear_v1_3_1.py
+          sha256sum -b historical/dropbox-six-file-2026-11-10/phase_space_caliper_v3_1_1_located.py
+          sha256sum -b historical/dropbox-six-file-2026-11-10/CUP_HARNESS_CONTRACT.md
+          sha256sum -b historical/dropbox-six-file-2026-11-10/notion_10k_manifest_final.json
+      - name: Compile four Python bodies
+        run: |
+          python3 -m py_compile historical/dropbox-six-file-2026-11-10/back_off_wrench_v0_4_located.py
+          python3 -m py_compile historical/dropbox-six-file-2026-11-10/horizon_valve_v4.py
+          python3 -m py_compile historical/dropbox-six-file-2026-11-10/horizon_nonlinear_v1_3_1.py
+          python3 -m py_compile historical/dropbox-six-file-2026-11-10/phase_space_caliper_v3_1_1_located.py
+      - name: Validate manifest JSON
+        run: |
+          python3 -m json.tool historical/dropbox-six-file-2026-11-10/notion_10k_manifest_final.json > /dev/null
