@@ -1,0 +1,26 @@
+{
+  "protocol": "push_pull_everything",
+  "badge_rule": "content-hash-excl-badge",
+  "version": "v1.2.2_corrective_final_freeze",
+  "decision": "All Findings 1-5 + Blockers 1-2 fixed, scoped evidence preserved, no upgraded claim",
+  "files": {
+    "horizon_valve_v4.py": "ac8b9379",
+    "phase_space_caliper.py": "6bb4e443",
+    "back_off_wrench.py": "bc2a5baa",
+    "horizon_nonlinear_v1_2.py": "f41c27e1",
+    "bateman_decay_engine_v5.py": "cbbafa7f",
+    "time_loom_coupled_sweep_v0.6.py": "b7ea21ad"
+  },
+  "full_hashes": {
+    "horizon_valve_v4.py": "ac8b937913f9e70778c9a0533400dd60662703eb79d67d1a58846ce2abce4cf4",
+    "phase_space_caliper.py": "6bb4e4438afdd84ee7d2028eb85037158391f1c98e96e00cc443b05b458885cb",
+    "back_off_wrench.py": "bc2a5baa32f2950ca243f775fec3bfdf518e73a0ae3c7985ea9b851c71e57621",
+    "horizon_nonlinear_v1_2.py": "f41c27e18047e12b13289932f3fdace9bed016140afe3f551333aafc9117b613",
+    "bateman_decay_engine_v5.py": "cbbafa7fe287341e1c4300a030e6e12dac22282570d5a4e7f8f32680fcc7c4f8",
+    "time_loom_coupled_sweep_v0.6.py": "b7ea21ad9003bd8d85f6eec2a9e1e5364ff4dc5c374cc3cf86ac64171f8a7f22"
+  },
+  "stack_pre_registered_at_start": true,
+  "disposition": "sidecar manifest reconciled for 10k sweep freeze",
+  "previous_provenance": "notion_tracking_v2_records.json retains f1290d4f",
+  "confound_acknowledged": "radial and tick windows both align with blowup coordinate by construction — baseline confirms consistency not outperformance"
+}
