@@ -26,10 +26,24 @@ jobs:
       - name: Validate manifest JSON
         run: |
           python3 -m json.tool historical/dropbox-six-file-2026-11-10/notion_10k_manifest_final.json > /dev/null
-      - name: Pin repair 10710 (first pinning run, print only)
+      - name: Pin repair 10710 (historical path)
         run: |
           echo "=== repair 10710 sha256 ==="
           sha256sum -b historical/wrench-10710-repair-by-Claude-2026-11-09/back_off_wrench_v0_4_syntax_repair_by_Claude_2026-11-09_NOT_CANONICAL.py
           echo "=== repair 10710 py_compile ==="
           python3 -m py_compile historical/wrench-10710-repair-by-Claude-2026-11-09/back_off_wrench_v0_4_syntax_repair_by_Claude_2026-11-09_NOT_CANONICAL.py
           echo "repair py_compile exit: $?"
+      - name: Pin d2-bench copy + run bench_smoke
+        run: |
+          echo "=== d2-bench repair 10710 sha256 ==="
+          sha256sum -b historical/d2-bench-repair10710-plain3321/back_off_wrench_v0_4_syntax_repair_by_Claude_2026-11-09_NOT_CANONICAL.py
+          echo "=== d2-bench PLAIN 3321 sha256 ==="
+          sha256sum -b historical/d2-bench-repair10710-plain3321/horizon_valve_v4_PLAIN.py
+          echo "=== d2-bench py_compile ==="
+          python3 -m py_compile historical/d2-bench-repair10710-plain3321/back_off_wrench_v0_4_syntax_repair_by_Claude_2026-11-09_NOT_CANONICAL.py
+          echo "d2-bench repair py_compile exit: $?"
+          python3 -m py_compile historical/d2-bench-repair10710-plain3321/horizon_valve_v4_PLAIN.py
+          echo "d2-bench PLAIN py_compile exit: $?"
+          echo "=== bench_smoke.py ==="
+          python3 historical/d2-bench-repair10710-plain3321/bench_smoke.py
+          echo "bench_smoke exit: $?"
