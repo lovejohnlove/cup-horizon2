@@ -4,7 +4,7 @@
 File: back_off_wrench.py
 Version: v0.4 / 2026-10-15 - fixes inf false-positive at 0 -> nonzero, documents 10x scaling
 Bench: FIXES P1/P2 audit - no fail-open, Jacobian check implemented, hash contract explicit, earliest shear localization with confidence, robust malformed handling, single walk cache
-Purpose: Retrocausal QA - retrospective walks backward tip->genesis, recomputes hashes via valve's canonical contract, measures phase and Jacobian deltas, pinpoints earliest shear with confidence
+Purpose: Retrocausal QA - retrospective auditing (not preimage recovery) - walks backward tip->genesis, recomputes hashes via valve's canonical contract, measures phase and Jacobian deltas, pinpoints earliest shear with confidence
 Fixes from v0.2 audit:
   P1-1: verify_forward() no longer fails open - returns (False, UNRESOLVED) when no verifier
   P1-2: Jacobian check implemented - cross_jacobian_det spike detection -> JACOBIAN_SPIKE
